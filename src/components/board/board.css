@@ -1,25 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: #4ca1af;
+  background: -webkit-linear-gradient(to right, #c4e0e5, #4ca1af);
+  background: linear-gradient(to right, #c4e0e5, #4ca1af);
+}
 .board {
-    border: 1px solid black;
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-  }
+  border: 1px solid #a0c3d2;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: calc(100vh - 2rem);
+  max-width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/** dark **/
+/* background: #000000;  
+background: -webkit-linear-gradient(
+  to right,
+  #434343,
+  #000000
+); 
+background: linear-gradient(to right, #434343, #000000);
+ */
+
+/** light **/
+/*
+ background: #4ca1af; 
+ background: -webkit-linear-gradient(
+  to right,
+  #c4e0e5,
+  #4ca1af
+);
+background: linear-gradient(
+  to right,
+  #c4e0e5,
+  #4ca1af
+);
+
+.cell ->>  background-color: #a0c3d2;
+*/
+
+.cell {
+  width: 12.5%;
+  height: 81px;
+  position: relative;
+}
+
+.black {
+  background-color: #62b6b7;
+}
+
+.white {
+  background-color: #cbedd5;
+}
+
+.piece {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.piece_img {
+  width: 50px;
+  height: 50px;
+}
+
+.highlight::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: flex;
+  border-radius: 50%;
+  position: absolute;
+  top: 39%;
+  right: 41%;
+  background-color: #083149;
+  z-index: 10;
+}
+
+@media screen and (max-width: 500px) {
   .wrapper {
-    padding: 1rem;
+    padding: 0;
   }
-  .cell {
-    width: 100%;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  
-  .black {
-    background-color: black;
-  }
-  
-  .highlight {
-    background-color:yellowgreen;
-  }
+}
